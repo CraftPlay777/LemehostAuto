@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ayuda"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="• Asegúrate de haber iniciado sesión\n• Al hacerlo, presioná el botón de automatizar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="URL por defecto al abrir la app:" />
+
+        <EditText
+            android:id="@+id/editUrlDefecto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="https://lemehost.com/server/index" />
+
+        <Button
+            android:id="@+id/btnGuardarUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Info app:" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Creador: Juha (CraftPlay777)" />
+
+        <TextView
+            android:id="@+id/linkGithub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Github: CraftPlay777"
+            android:textColor="#1a73e8" />
+
+        <TextView
+            android:id="@+id/linkYoutube"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yt: themtlua"
+            android:textColor="#1a73e8" />
+
+        <TextView
+            android:id="@+id/linkDiscord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dc: themtlua"
+            android:textColor="#1a73e8" />
+
+        <TextView
+            android:id="@+id/linkRepo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Código Abierto: CraftPlay777/LemehostAuto"
+            android:textColor="#1a73e8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="License: MIT" />
+
+        <Button
+            android:id="@+id/btnCerrarAyuda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Cerrar" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,8 @@
+gen/
+classes/
+classes_dex/
+compiled_res.zip
+app-unsigned.apk
+output/
+*.jar
+LemeHostAuto.sh
