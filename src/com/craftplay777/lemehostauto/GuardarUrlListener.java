@@ -11,31 +11,42 @@ import android.widget.Toast;
 public class GuardarUrlListener implements View.OnClickListener {
 
     private final Context context;
-    private final EditText editUrl;
+    private final EditText editUrlApertura;
+    private final EditText editUrlServidor;
     private final WebView webView;
     private final AlertDialog dialog;
 
-    public GuardarUrlListener(Context context, EditText editUrl, WebView webView, AlertDialog dialog) {
+    public GuardarUrlListener(Context context, EditText editUrlApertura, EditText editUrlServidor, WebView webView, AlertDialog dialog) {
         this.context = context;
-        this.editUrl = editUrl;
+        this.editUrlApertura = editUrlApertura;
+        this.editUrlServidor = editUrlServidor;
         this.webView = webView;
         this.dialog = dialog;
     }
 
     @Override
     public void onClick(View v) {
-        String url = editUrl.getText().toString().trim();
+        String urlApertura = editUrlApertura.getText().toString().trim();
+        String urlServidor = editUrlServidor.getText().toString().trim();
 
-        if (!url.contains("lemehost.com")) {
-            Toast.makeText(context, "La URL debe contener lemehost.com", Toast.LENGTH_SHORT).show();
+        if (!urlApertura.contains("lemehost.com")) {
+            Toast.makeText(context, "La URL de apertura debe contener lemehost.com", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!urlServidor.contains("lemehost.com")) {
+            Toast.makeText(context, "La URL del servidor debe contener lemehost.com", Toast.LENGTH_SHORT).show();
             return;
         }
 
         SharedPreferences prefs = context.getSharedPreferences("lemehost_auto_prefs", Context.MODE_PRIVATE);
-        prefs.edit().putString("url_defecto", url).apply();
+        prefs.edit()
+                .putString("url_defecto", urlApertura)
+                .putString("url_servidor", urlServidor)
+                .apply();
 
-        webView.loadUrl(url);
-        Toast.makeText(context, "URL guardada", Toast.LENGTH_SHORT).show();
+        webView.loadUrl(urlApertura);
+        Toast.makeText(context, "URLs guardadas", Toast.LENGTH_SHORT).show();
         dialog.dismiss();
     }
 }

@@ -27,6 +27,7 @@ aapt2 link -o app-unsigned.apk \
     -I "$ANDROID_JAR" \
     --manifest AndroidManifest.xml \
     -R compiled_res.zip \
+    -A assets \
     --java gen \
     --auto-add-overlay || { echo "Falló aapt2 link"; exit 1; }
 
@@ -48,14 +49,13 @@ java -jar "$SIGNER_JAR" \
     --out output \
     --zipAlignPath "$(which zipalign)" || { echo "Falló la firma"; exit 1; }
 
-# Función: copia el APK firmado a Descargas para instalarlo fácil
 APK_FIRMADO=$(find output -name "*.apk" | head -n 1)
 
 if [ -d "$DOWNLOADS" ]; then
     cp "$APK_FIRMADO" "$DOWNLOADS/LemeHostAuto.apk"
     echo "APK copiado a $DOWNLOADS/LemeHostAuto.apk"
 else
-    echo "No se encontró $DOWNLOADS — corré 'termux-setup-storage' una vez (te va a pedir permiso de almacenamiento) y volvé a correr el build."
+    echo "No se encontró $DOWNLOADS — corré 'termux-setup-storage' una vez y volvé a correr el build."
 fi
 
 echo "Build completo. APK en: $ROOT/output/"

@@ -22,11 +22,60 @@
             android:layout_marginTop="16dp"
             android:text="• Asegúrate de haber iniciado sesión\n• Al hacerlo, presioná el botón de automatizar" />
 
-        <TextView
+        <Switch
+            android:id="@+id/switchModoOscuro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Modo oscuro" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="URL por defecto al abrir la app:" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="URL del servidor al automatizar:" />
+
+            <Button
+                android:id="@+id/btnInfoServidor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editUrlServidor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="https://lemehost.com/server/TU_ID/free-plan" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="URL por defecto al abrir la app:" />
+
+            <Button
+                android:id="@+id/btnInfoDefecto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?" />
+
+        </LinearLayout>
 
         <EditText
             android:id="@+id/editUrlDefecto"
@@ -38,6 +87,7 @@
             android:id="@+id/btnGuardarUrl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Guardar" />
 
         <TextView

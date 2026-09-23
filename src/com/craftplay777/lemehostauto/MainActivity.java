@@ -14,14 +14,18 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Tema.aplicar(findViewById(android.R.id.content), this);
+
         SharedPreferences prefs = getSharedPreferences("lemehost_auto_prefs", MODE_PRIVATE);
 
         if (!prefs.getBoolean("primera_vez_mostrada", false)) {
-            new AlertDialog.Builder(this)
-                    .setMessage("Por favor asegúrate de unirse sesión antes de presionar el botón")
+            AlertDialog dialogoBienvenida = new AlertDialog.Builder(this)
+                    .setMessage("Por favor asegúrate de unirse sesión antes de presionar el botón.\n\nAntes de activar la automatización, configurá la URL de tu servidor (Extend time / Start) en el botón \"?\" de arriba.")
                     .setCancelable(false)
                     .setPositiveButton("ACEPTAR", new PrimeraVezDialogListener(this))
-                    .show();
+                    .create();
+            dialogoBienvenida.show();
+            Tema.estilizarDialogo(dialogoBienvenida, this);
         }
 
         String urlInicial = prefs.getString("url_defecto", "https://lemehost.com/server/index");
