@@ -19,7 +19,8 @@ public class AyudaClickListener implements View.OnClickListener {
             "• Entra a tu navegador\n" +
             "• Ve a https://lemehost.com/server/index\n" +
             "• Entra a tu servidor\n" +
-            "• Copia la URL de esa página\n" +
+            "• Tocá específicamente la pestaña \"Free Plan\" (no te quedes en la pantalla general)\n" +
+            "• Copia la URL de esa página (debe terminar en /free-plan)\n" +
             "• Entra aquí y pega esa URL\n" +
             "• Y listo";
 

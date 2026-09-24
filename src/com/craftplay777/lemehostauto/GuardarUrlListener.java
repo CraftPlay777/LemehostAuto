@@ -27,7 +27,12 @@ public class GuardarUrlListener implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         String urlApertura = editUrlApertura.getText().toString().trim();
-        String urlServidor = editUrlServidor.getText().toString().trim();
+        String urlServidorOriginal = editUrlServidor.getText().toString().trim();
+        String urlServidor = UrlNormalizer.normalizar(urlServidorOriginal);
+
+        if (!urlServidor.equals(urlServidorOriginal)) {
+            editUrlServidor.setText(urlServidor);
+        }
 
         if (!urlApertura.contains("lemehost.com")) {
             Toast.makeText(context, "La URL de apertura debe contener lemehost.com", Toast.LENGTH_SHORT).show();
@@ -46,7 +51,13 @@ public class GuardarUrlListener implements View.OnClickListener {
                 .apply();
 
         webView.loadUrl(urlApertura);
-        Toast.makeText(context, "URLs guardadas", Toast.LENGTH_SHORT).show();
+
+        if (!urlServidor.equals(urlServidorOriginal)) {
+            Toast.makeText(context, "Escribiste mal, pero ya se arregló :)", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(context, "URL guardada", Toast.LENGTH_SHORT).show();
+        }
+
         dialog.dismiss();
     }
 }

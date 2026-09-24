@@ -23,7 +23,9 @@ public class LemeHostService extends Service {
     private static final String SCRIPT_EXTEND =
             "(function(){var els=document.querySelectorAll('button, a');" +
             "for(var i=0;i<els.length;i++){" +
-            "if(els[i].textContent.trim()==='Extend time'){els[i].click();return 'ok';}}" +
+            "if(els[i].textContent.trim()==='Extend time'){" +
+            "if(els[i].disabled){return 'disabled';}" +
+            "els[i].click();return 'ok';}}" +
             "return 'not_found';})();";
 
     private static final String SCRIPT_START =
@@ -93,7 +95,7 @@ public class LemeHostService extends Service {
 
     // Función: presiona Extend time y programa la próxima ejecución con tiempo aleatorio
     public void ejecutarExtend() {
-        webView.evaluateJavascript(SCRIPT_EXTEND, null);
+        webView.evaluateJavascript(SCRIPT_EXTEND, new ExtendResultCallback(this));
         contador++;
         long intervalo = generarIntervaloAleatorio();
         proximaEjecucionMillis = System.currentTimeMillis() + intervalo;

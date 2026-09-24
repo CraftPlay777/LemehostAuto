@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.craftplay777.lemehostauto">
+    package="com.craftplay777.lemehostauto"
+    android:versionCode="1"
+    android:versionName="2.23.09.26">
 
     <uses-sdk
         android:minSdkVersion="21"
